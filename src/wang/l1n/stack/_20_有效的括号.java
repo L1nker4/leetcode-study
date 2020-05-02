@@ -23,19 +23,19 @@ public class _20_有效的括号 {
         int len = s.length();
         for (int i = 0; i < len; i++) {
             char c = s.charAt(i);
-            if (map.containsKey(c)) {
+            if (map.containsKey(c)){
                 stack.push(c);
-            } else {
-                //遇到右括号首先判断栈是否为空
+            }else {
                 if (stack.isEmpty()) {
                     return false;
                 }
                 char left = stack.pop();
-                if (c != map.get(left)) {
+                if (c != map.get(left)){
                     return false;
                 }
             }
         }
         return stack.isEmpty();
     }
+
 }
