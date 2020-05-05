@@ -45,5 +45,24 @@ public class _739_每日温度 {
         return ans;
     }
 
+    public int[] dailyTemperatures2(int[] T) {
+        Stack<Integer> stack = new Stack<Integer>();
+        int[] result = new int[T.length];
+        for(int i = 0; i < T.length; i ++){
+            while(!stack.isEmpty() && T[i] > T[stack.peek()]){
+                result[stack.peek()] = i - stack.peek();
+                stack.pop();
+            }
+            stack.push(i);
+        }
+
+        //处理剩余找不到更高问题的索引数据。
+        while(!stack.isEmpty()){
+            result[stack.peek()] = 0;
+            stack.pop();
+        }
+        return result;
+    }
+
 
 }
