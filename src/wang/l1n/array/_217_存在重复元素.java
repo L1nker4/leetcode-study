@@ -1,6 +1,8 @@
 package wang.l1n.array;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author ：L1nker4
@@ -48,5 +50,15 @@ public class _217_存在重复元素 {
         return false;
     }
 
+    public boolean containsDuplicate3(int[] nums) {
+        Set<Integer> hashSet = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (hashSet.contains(nums[i])){
+                return true;
+            }
+            hashSet.add(nums[i]);
+        }
+        return false;
+    }
 
 }
