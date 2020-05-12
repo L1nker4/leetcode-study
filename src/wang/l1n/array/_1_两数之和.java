@@ -32,6 +32,6 @@ public class _1_两数之和 {
             }
             map.put(nums[i], i);
         }
-        throw new IllegalArgumentException("No two sum solution");
+        return new int[] {};
     }
 }
