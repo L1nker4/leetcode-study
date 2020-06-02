@@ -1,5 +1,7 @@
 package wang.l1n.tree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -35,7 +37,7 @@ public class _98_验证二叉搜索树 {
     public boolean isValidBST2(TreeNode root) {
         Stack<TreeNode> stack = new Stack();
         double inorder = - Double.MAX_VALUE;
-
+        TreeNode curr = root;
         while (!stack.isEmpty() || root != null) {
             while (root != null) {
                 stack.push(root);
@@ -51,6 +53,8 @@ public class _98_验证二叉搜索树 {
         }
         return true;
     }
+
+
 
 
 }
