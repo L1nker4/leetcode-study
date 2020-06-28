@@ -15,18 +15,14 @@ public class _94_中序遍历二叉树 {
         List<Integer> data = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode curr = root;
-        if (curr == null){
-            return data;
-        }
-        while (curr != null || !stack.isEmpty()){
-            if (curr != null){
+        while(curr != null || !stack.isEmpty()){
+            while (curr != null){
                 stack.push(curr);
                 curr = curr.left;
-            }else {
-                curr = stack.pop();
-                data.add(curr.val);
-                curr = curr.right;
             }
+            curr = stack.pop();
+            data.add(curr.val);
+            curr = curr.right;
         }
         return data;
     }

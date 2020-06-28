@@ -44,7 +44,6 @@ public class _98_验证二叉搜索树 {
                 root = root.left;
             }
             root = stack.pop();
-            // 如果中序遍历得到的节点的值小于等于前一个 inorder，说明不是二叉搜索树
             if (root.val <= inorder) {
                 return false;
             }
