@@ -21,14 +21,14 @@ public class _144_二叉树的前序遍历 {
         }
 
         stack.add(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            list.add(node.val);
-            if (node.right != null) {
-                stack.push(node.right);
+        while (!stack.isEmpty()){
+            TreeNode curr = stack.pop();
+            list.add(curr.val);
+            if (curr.right != null){
+                stack.add(curr);
             }
-            if (node.left != null) {
-                stack.push(node.left);
+            if (curr.left != null){
+                stack.add(curr);
             }
         }
         return list;
