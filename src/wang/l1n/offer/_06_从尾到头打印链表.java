@@ -8,7 +8,7 @@ import java.util.Stack;
  * @date ： 创建于  2020/10/16 13:00
  * @description：
  */
-public class _06_从尾到尾打印链表 {
+public class _06_从尾到头打印链表 {
 
     ArrayList<Integer> tmp = new ArrayList<Integer>();
 
