@@ -15,12 +15,15 @@ public class _06_从尾到头打印链表 {
     public int[] reversePrint1(ListNode head) {
         recur(head);
         int[] res = new int[tmp.size()];
-        for(int i = 0; i < res.length; i++)
+        for(int i = 0; i < res.length; i++) {
             res[i] = tmp.get(i);
+        }
         return res;
     }
     void recur(ListNode head) {
-        if(head == null) return;
+        if(head == null) {
+            return;
+        }
         recur(head.next);
         tmp.add(head.val);
     }
