@@ -8,16 +8,16 @@ package wang.l1n.leetcode.search;
 public class _704_二分查找 {
 
     public int search(int[] nums, int target) {
-        int pivot, left = 0, right = nums.length - 1;
+        int mid, left = 0, right = nums.length - 1;
         while (left <= right) {
-            pivot = left + (right - left) / 2;
-            if (nums[pivot] == target) {
-                return pivot;
+            mid = left + (right - left) / 2;
+            if (nums[mid] == target) {
+                return mid;
             }
-            if (target < nums[pivot]) {
-                right = pivot - 1;
-            } else {
-                left = pivot + 1;
+            if (target < nums[mid]) {
+                right = mid - 1;
+            } else if (target > nums[mid]){
+                left = mid + 1;
             }
         }
         return -1;
