@@ -8,33 +8,29 @@ import java.util.Stack;
  * @description： https://leetcode-cn.com/problems/validate-binary-search-tree/
  */
 public class _98_验证二叉搜索树 {
-    public boolean helper(TreeNode node, Integer lower, Integer upper) {
-        if (node == null) {
-            return true;
-        }
 
-        int val = node.val;
-        if (lower != null && val <= lower) {
-            return false;
-        }
-        if (upper != null && val >= upper) {
-            return false;
-        }
-
-        if (! helper(node.right, val, upper)) {
-            return false;
-        }
-        if (! helper(node.left, lower, val)) return false;
-        return true;
-    }
 
     public boolean isValidBST(TreeNode root) {
-        return helper(root, null, null);
+        return isValidBST(root, null, null);
+    }
+
+    private boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
+        if (root == null) {
+            return true;
+        }
+        if (min != null && root.val <= min.val) {
+            return false;
+        }
+        if (max != null && root.val >= max.val) {
+            return false;
+        }
+        return isValidBST(root.left, min, root)
+                && isValidBST(root.right, root, max);
     }
 
     public boolean isValidBST2(TreeNode root) {
         Stack<TreeNode> stack = new Stack();
-        double inorder = - Double.MAX_VALUE;
+        double inorder = -Double.MAX_VALUE;
         TreeNode curr = root;
         while (!stack.isEmpty() || root != null) {
             while (root != null) {
@@ -50,8 +46,6 @@ public class _98_验证二叉搜索树 {
         }
         return true;
     }
-
-
 
 
 }
