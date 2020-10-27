@@ -32,4 +32,16 @@ public class _144_二叉树的前序遍历 {
         }
         return list;
     }
+
+    List<Integer> list = new LinkedList<>();
+
+    public List<Integer> preorderTraversal1(TreeNode root) {
+        if(root == null){
+            return list;
+        }
+        list.add(root.val);
+        preorderTraversal(root.left);
+        preorderTraversal(root.right);
+        return list;
+    }
 }
