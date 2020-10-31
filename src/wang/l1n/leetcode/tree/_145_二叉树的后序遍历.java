@@ -1,6 +1,7 @@
 package wang.l1n.leetcode.tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -11,25 +12,37 @@ import java.util.Stack;
  */
 public class _145_二叉树的后序遍历 {
 
+    List<Integer> res = new LinkedList<>();
+
     public List<Integer> postorderTraversal(TreeNode root) {
         if (root == null){
-            return null;
+            return res;
         }
-        List<Integer> data = new ArrayList<>();
-        TreeNode curr = root;
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(curr);
-        while (!stack.isEmpty()){
-            TreeNode demo = stack.pop();
-            if (demo.left != null && demo.left != curr && demo.right != curr){
-                stack.push(demo.left);
-            }else if (demo.right != null && demo.right != curr){
-                stack.push(demo.right);
-            }else {
-                data.add(stack.pop().val);
-                curr = demo;
-            }
-        }
-        return data;
+        postorderTraversal(root.left);
+        postorderTraversal(root.right);
+        res.add(root.val);
+        return res;
     }
+
+//    public List<Integer> postorderTraversal(TreeNode root) {
+//        if (root == null){
+//            return null;
+//        }
+//        List<Integer> data = new ArrayList<>();
+//        TreeNode curr = root;
+//        Stack<TreeNode> stack = new Stack<>();
+//        stack.push(curr);
+//        while (!stack.isEmpty()){
+//            TreeNode demo = stack.pop();
+//            if (demo.left != null && demo.left != curr && demo.right != curr){
+//                stack.push(demo.left);
+//            }else if (demo.right != null && demo.right != curr){
+//                stack.push(demo.right);
+//            }else {
+//                data.add(stack.pop().val);
+//                curr = demo;
+//            }
+//        }
+//        return data;
+//    }
 }
