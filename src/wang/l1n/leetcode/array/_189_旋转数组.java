@@ -1,5 +1,7 @@
 package wang.l1n.leetcode.array;
 
+import java.util.Arrays;
+
 /**
  * @author ：L1nker4
  * @date ： 创建于  2020/4/17 21:18
@@ -10,17 +12,18 @@ public class _189_旋转数组 {
 
     /**
      * 暴力法
+     *
      * @param nums
      * @param k
      */
     public void rotate1(int[] nums, int k) {
         int tmp, previous;
         for (int i = 0; i < k; i++) {
-            previous = nums[nums.length -1];
+            previous = nums[nums.length - 1];
             for (int j = 0; j < nums.length; j++) {
                 tmp = nums[j];
                 nums[j] = previous;
-                previous =tmp;
+                previous = tmp;
             }
         }
     }
@@ -47,6 +50,16 @@ public class _189_旋转数组 {
             nums[end] = tmp;
             start++;
             end--;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+        int k =3;
+        int[] range = Arrays.copyOfRange(arr, arr.length - k, arr.length);
+        int[] ofRange = Arrays.copyOfRange(arr, 0, arr.length - k - 1);
+        for (int i = 0; i < arr.length; i++) {
+
         }
     }
 }
